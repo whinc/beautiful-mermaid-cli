@@ -1,0 +1,54 @@
+{
+  "name": "bmermaid",
+  "version": "0.1.0",
+  "description": "A CLI tool to render Mermaid diagrams as beautiful SVG or ASCII",
+  "type": "module",
+  "bin": {
+    "bmermaid": "./dist/cli.mjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mermaid",
+    "cli",
+    "svg",
+    "ascii",
+    "diagram",
+    "chart",
+    "flowchart",
+    "sequence-diagram"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "beautiful-mermaid": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsdown": "^0.21.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukilabs/beautiful-mermaid-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukilabs/beautiful-mermaid-cli/issues"
+  },
+  "homepage": "https://github.com/lukilabs/beautiful-mermaid-cli#readme"
+}
