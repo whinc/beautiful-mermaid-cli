@@ -1,0 +1,9 @@
+graph TD
+    A[User Input] --> B{Parse Mermaid}
+    B -->|Valid| C[Apply Theme]
+    B -->|Invalid| D[Error]
+    C --> E{Output Format}
+    E -->|SVG| F[Render SVG]
+    E -->|ASCII| G[Render ASCII]
+    F --> H[Output File]
+    G --> H

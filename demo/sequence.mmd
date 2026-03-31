@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant User
+    participant CLI
+    participant Renderer
+
+    User->>CLI: bmermaid input.mmd -o output.svg
+    CLI->>CLI: Parse arguments
+    CLI->>CLI: Read input file
+    CLI->>Renderer: renderMermaid(code, options)
+    Renderer->>Renderer: Apply theme
+    Renderer->>Renderer: Generate SVG
+    Renderer-->>CLI: Return SVG string
+    CLI->>CLI: Write to output file
+    CLI-->>User: Done!
