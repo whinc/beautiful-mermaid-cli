@@ -1,0 +1,29 @@
+flowchart TD
+    subgraph 主开发流程
+        A[brainstorming<br/>苏格拉底式设计提炼] --> B{需要隔离?}
+        B -->|是| C[using-git-worktrees<br/>创建隔离工作空间]
+        B -->|否| D[writing-plans<br/>拆分为小任务]
+        C --> D
+        D --> E{执行方式}
+        E -->|子代理| F[subagent-driven-development<br/>派发独立子代理]
+        E -->|带检查点| G[executing-plans<br/>批量执行]
+        E -->|并行任务| H[dispatching-parallel-agents<br/>并发调度]
+        F --> I[test-driven-development<br/>红-绿-重构循环]
+        G --> I
+        H --> I
+        I --> J[requesting-code-review<br/>任务间审查]
+        J --> K{有反馈?}
+        K -->|是| L[receiving-code-review<br/>响应反馈]
+        K -->|否| M[finishing-a-development-branch<br/>验证与合并选项]
+        L --> I
+    end
+
+    subgraph 调试流程
+        N[systematic-debugging<br/>问题定位] --> O[根因追踪]
+        O --> P[纵深防御]
+        P --> Q[verification-before-completion<br/>验证修复]
+    end
+
+    I -.->|遇到问题| N
+    Q -.->|修复完成| I
+
